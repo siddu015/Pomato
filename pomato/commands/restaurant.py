@@ -7,20 +7,20 @@ restaurant_service = RestaurantService()
 app = typer.Typer()
 
 @app.command()
-def add_restaurant(
+def add(
     name: Annotated[str, typer.Option(prompt=True)],
     rating: Annotated[float, typer.Option(prompt=True)],
 ):
     restaurant_service.add_restaurant(name, rating)
 
 @app.command()
-def remove_restaurant(
+def remove(
     name: Annotated[str, typer.Option(prompt=True)]
 ):
     restaurant_service.remove_restaurant(name)
 
 @app.command()
-def display_restaurants():
+def display():
     restaurant_service.display_restaurants()
 
 @app.command()

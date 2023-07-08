@@ -1,7 +1,7 @@
 import typer
 from peewee import *
 from pomato.models import create_tables
-from pomato.commands import users, restaurant, food
+from pomato.commands import users, restaurant, food,cart,order
 
 app = typer.Typer()
 
@@ -10,7 +10,9 @@ auth = users.auth
 
 app.add_typer(users.app, name="users")
 app.add_typer(restaurant.app, name="restaurant")
-app.add_typer(food.app, name="food")  
+app.add_typer(food.app, name="food") 
+app.add_typer(cart.app, name="cart")
+app.add_typer(order.app, name="order")
 
 
 

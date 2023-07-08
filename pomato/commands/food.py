@@ -25,13 +25,6 @@ def remove(
     food_service.remove(name)
 
 
-@app.command()
-def display(
-    restaurant: Annotated[str, typer.Option(prompt=True)]
-):
-    food_service.display(restaurant)
-
-
 @app.command(name="list")
 def list_foods():
     food_service.list()
