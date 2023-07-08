@@ -74,5 +74,5 @@ class AuthenticationService:
     def logout(self):
         with self.session:
             print(
-                f"Thank you for shopping, {self.session.current_user}! See you soon, bye."
+                f"Thank you for using our application, {self.session.current_user}! See you soon, bye."
             )
