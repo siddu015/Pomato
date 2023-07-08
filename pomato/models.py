@@ -51,6 +51,7 @@ class Food(Model):
     restaurant = ForeignKeyField(Restaurant, backref='foods')
     price = IntegerField()
     is_veg = BooleanField(default=True)
+    quantity = IntegerField(default=0)  # Add the quantity field
 
     class Meta:
         database = db
@@ -59,8 +60,8 @@ class Food(Model):
         return f"{self.id} {self.name} {self.price} {'Veg' if self.is_veg else 'Non-Veg'}"
 
     @staticmethod
-    def add_food(name: str, restaurant: Restaurant, price: int, is_veg: bool = True):
-        Food.create(name=name, restaurant=restaurant, price=price, is_veg=is_veg)
+    def add_food(name: str, restaurant: Restaurant, price: int, is_veg: bool = True, quantity: int = 0):
+        Food.create(name=name, restaurant=restaurant, price=price, is_veg=is_veg, quantity=quantity)
 
     @staticmethod
     def remove_food(name: str):
